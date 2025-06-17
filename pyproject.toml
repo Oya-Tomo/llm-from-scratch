@@ -7,6 +7,8 @@ requires-python = ">=3.12.0"
 dependencies = [
   "torch>=2.7.0",
   "torchvision>=0.22.0",
+  "matplotlib",
+  "PyQt5",
 ]
 
 [tool.uv.sources]
