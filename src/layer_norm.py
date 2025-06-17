@@ -14,3 +14,10 @@ class LayerNorm(nn.Module):
         var = x.var(dim=-1, keepdim=True, unbiased=False)
         norm_x = (x - mean) / torch.sqrt(var + self.eps)
         return norm_x * self.scale + self.shift
+
+
+if __name__ == "__main__":
+    ln = LayerNorm(emb_dim=5)
+    out = ln(torch.randn(3, 5))
+    print(out.mean(dim=-1))
+    print(out.var(dim=-1, unbiased=False, keepdim=True))
