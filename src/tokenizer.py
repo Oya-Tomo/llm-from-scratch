@@ -5,7 +5,7 @@ import tiktoken
 tokenizer = tiktoken.get_encoding("gpt2")
 
 
-def text_to_tokens(text: str, tokenizer: tiktoken.Encoding) -> torch.Tensor:
+def text_to_token_ids(text: str, tokenizer: tiktoken.Encoding) -> torch.Tensor:
     tokens = tokenizer.encode(text, allowed_special={"<|endoftext|>"})
     return torch.tensor(tokens, dtype=torch.long).unsqueeze(0)
 
