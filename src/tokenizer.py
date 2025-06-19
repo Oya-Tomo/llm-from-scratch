@@ -10,6 +10,6 @@ def text_to_token_ids(text: str, tokenizer: tiktoken.Encoding) -> torch.Tensor:
     return torch.tensor(tokens, dtype=torch.long).unsqueeze(0)
 
 
-def tokens_to_text(tokens: torch.Tensor, tokenizer: tiktoken.Encoding) -> str:
+def token_ids_to_text(tokens: torch.Tensor, tokenizer: tiktoken.Encoding) -> str:
     tokens = tokens.squeeze(0).tolist()
     return tokenizer.decode(tokens)
